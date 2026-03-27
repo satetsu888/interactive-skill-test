@@ -1,0 +1,24 @@
+{
+  "name": "interactive-skill-test",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && npm run build:demo && npm run build:kanban && npm run build:color && npm run build:grid",
+    "build:demo": "SKILL=demo vite build && mv skills/demo-skill/dist/demo.html skills/demo-skill/dist/index.html",
+    "build:kanban": "SKILL=kanban vite build && mv skills/kanban-skill/dist/kanban.html skills/kanban-skill/dist/index.html",
+    "build:color": "SKILL=color vite build && mv skills/color-skill/dist/color.html skills/color-skill/dist/index.html",
+    "build:grid": "SKILL=grid vite build && mv skills/grid-skill/dist/grid.html skills/grid-skill/dist/index.html"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.3"
+  }
+}
