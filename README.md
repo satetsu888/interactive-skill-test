@@ -122,6 +122,83 @@ node skills/color-skill/server.mjs --port 5190 --data '{
 }'
 ```
 
+### Annotate Skill - 画像アノテーション
+
+画像上に矩形を描いてラベルを付けます。UI レビューやバグ報告に。
+
+![Annotate Skill](docs/screenshots/annotate-skill.png)
+
+```bash
+node skills/annotate-skill/server.mjs --port 5190 --data '{
+  "title": "Review this UI screenshot",
+  "imageUrl": "https://example.com/screenshot.png",
+  "labels": ["Bug", "Improvement", "Question", "Note"]
+}'
+```
+
+### Data Filter Skill - 散布図フィルタ
+
+散布図上でポイントをクリックして選択、または分割線を引いてデータを2グループに分けます。
+
+![Data Filter Skill](docs/screenshots/datafilter-skill.png)
+
+```bash
+node skills/datafilter-skill/server.mjs --port 5190 --data '{
+  "title": "Filter high-value customers",
+  "xAxis": "revenue",
+  "yAxis": "satisfaction",
+  "labelField": "name",
+  "data": [
+    { "id": "1", "name": "Customer A", "revenue": 50000, "satisfaction": 4.5 },
+    { "id": "2", "name": "Customer B", "revenue": 30000, "satisfaction": 3.2 }
+  ]
+}'
+```
+
+### Pairwise Skill - ペアワイズ比較
+
+アイテムを2つずつ比較して、全体のランキングを生成します。
+
+![Pairwise Skill](docs/screenshots/pairwise-skill.png)
+
+```bash
+node skills/pairwise-skill/server.mjs --port 5190 --data '{
+  "title": "Which features should we prioritize?",
+  "description": "Compare each pair and pick the more important one.",
+  "items": [
+    { "id": "1", "title": "Dark mode", "description": "Add dark theme support" },
+    { "id": "2", "title": "Export PDF", "description": "Export reports as PDF" },
+    { "id": "3", "title": "SSO", "description": "Single sign-on integration" }
+  ]
+}'
+```
+
+### Quiz Skill - クイズ
+
+選択式クイズを出題し、即時フィードバックと解説を表示します。最後にスコアを集計。
+
+![Quiz Skill](docs/screenshots/quiz-skill.png)
+
+```bash
+node skills/quiz-skill/server.mjs --port 5190 --data '{
+  "title": "JavaScript Basics Quiz",
+  "questions": [
+    {
+      "id": "1",
+      "question": "typeof null の結果は？",
+      "choices": [
+        { "label": "A", "text": "null" },
+        { "label": "B", "text": "undefined" },
+        { "label": "C", "text": "object" },
+        { "label": "D", "text": "boolean" }
+      ],
+      "answer": "C",
+      "explanation": "歴史的な理由により typeof null は object を返します。"
+    }
+  ]
+}'
+```
+
 ## Architecture
 
 ```
@@ -130,13 +207,21 @@ src/
 ├── kanban/         # Kanban Skill (Drag & Drop board)
 ├── grid/           # Grid Skill (Cell selector)
 ├── color/          # Color Skill (Palette builder)
+├── annotate/       # Annotate Skill (Image annotation)
+├── datafilter/     # Data Filter Skill (Scatter plot filter)
+├── pairwise/       # Pairwise Skill (Pairwise comparison)
+├── quiz/           # Quiz Skill (Multiple choice quiz)
 └── hooks/
     └── useAgentBridge.ts   # Server-Frontend bridge hook
 skills/
 ├── demo-skill/     # Built output + server
 ├── kanban-skill/
 ├── grid-skill/
-└── color-skill/
+├── color-skill/
+├── annotate-skill/
+├── datafilter-skill/
+├── pairwise-skill/
+└── quiz-skill/
 ```
 
 各スキルは共通の `useAgentBridge` フックを通じてサーバーと通信します:
