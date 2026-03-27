@@ -199,6 +199,16 @@ node skills/quiz-skill/server.mjs --port 5190 --data '{
 }'
 ```
 
+### Plan Review Skill - プランレビュー
+
+Markdown で書かれたプランドキュメントをブラウザに表示し、テキストを選択してインラインコメントを付けられます。
+
+![Plan Review Skill](docs/screenshots/planreview-skill.png)
+
+```bash
+node skills/planreview-skill/server.mjs --port 5190 --file /path/to/plan.md --title "Plan Review"
+```
+
 ## Architecture
 
 ```
@@ -211,6 +221,7 @@ src/
 ├── datafilter/     # Data Filter Skill (Scatter plot filter)
 ├── pairwise/       # Pairwise Skill (Pairwise comparison)
 ├── quiz/           # Quiz Skill (Multiple choice quiz)
+├── planreview/     # Plan Review Skill (Inline comments on markdown)
 └── hooks/
     └── useAgentBridge.ts   # Server-Frontend bridge hook
 skills/
@@ -221,7 +232,8 @@ skills/
 ├── annotate-skill/
 ├── datafilter-skill/
 ├── pairwise-skill/
-└── quiz-skill/
+├── quiz-skill/
+└── planreview-skill/
 ```
 
 各スキルは共通の `useAgentBridge` フックを通じてサーバーと通信します:

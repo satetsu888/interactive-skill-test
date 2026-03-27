@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && npm run build:demo && npm run build:kanban && npm run build:color && npm run build:grid && npm run build:annotate && npm run build:pairwise && npm run build:datafilter && npm run build:quiz",
+    "build": "tsc && npm run build:demo && npm run build:kanban && npm run build:color && npm run build:grid && npm run build:annotate && npm run build:pairwise && npm run build:datafilter && npm run build:quiz && npm run build:planreview",
     "build:demo": "SKILL=demo vite build && mv skills/demo-skill/dist/demo.html skills/demo-skill/dist/index.html",
     "build:kanban": "SKILL=kanban vite build && mv skills/kanban-skill/dist/kanban.html skills/kanban-skill/dist/index.html",
     "build:color": "SKILL=color vite build && mv skills/color-skill/dist/color.html skills/color-skill/dist/index.html",
@@ -12,11 +12,14 @@
     "build:annotate": "SKILL=annotate vite build && mv skills/annotate-skill/dist/annotate.html skills/annotate-skill/dist/index.html",
     "build:pairwise": "SKILL=pairwise vite build && mv skills/pairwise-skill/dist/pairwise.html skills/pairwise-skill/dist/index.html",
     "build:datafilter": "SKILL=datafilter vite build && mv skills/datafilter-skill/dist/datafilter.html skills/datafilter-skill/dist/index.html",
-    "build:quiz": "SKILL=quiz vite build && mv skills/quiz-skill/dist/quiz.html skills/quiz-skill/dist/index.html"
+    "build:quiz": "SKILL=quiz vite build && mv skills/quiz-skill/dist/quiz.html skills/quiz-skill/dist/index.html",
+    "build:planreview": "SKILL=planreview vite build && mv skills/planreview-skill/dist/planreview.html skills/planreview-skill/dist/index.html"
   },
   "dependencies": {
     "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react-dom": "^19.2.4",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@types/react": "^19.2.14",
