@@ -15,7 +15,7 @@
     "build:datafilter": "SKILL=datafilter vite build && mv skills/datafilter-skill/dist/datafilter.html skills/datafilter-skill/dist/index.html",
     "build:quiz": "SKILL=quiz vite build && mv skills/quiz-skill/dist/quiz.html skills/quiz-skill/dist/index.html",
     "build:planreview": "SKILL=planreview vite build && mv skills/planreview-skill/dist/planreview.html skills/planreview-skill/dist/index.html",
-    "build:codereview-review": "SKILL=codereview vite build --outDir skills/codereview-review-skill/dist --emptyOutDir && mv skills/codereview-review-skill/dist/codereview.html skills/codereview-review-skill/dist/index.html"
+    "build:codereview-review": "SKILL=codereview-review vite build && mv skills/codereview-review-skill/dist/codereview-review.html skills/codereview-review-skill/dist/index.html"
   },
   "dependencies": {
     "react": "^19.2.4",
