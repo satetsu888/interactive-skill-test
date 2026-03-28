@@ -1,6 +1,6 @@
 ---
 name: plan-review
-description: After creating or updating a plan document, use this skill to let the user review it in the browser with inline comments. Always use this skill when you finish writing a plan before proceeding with implementation.
+description: "TRIGGER when: user asks to plan, create a plan, or enters plan mode. Use this skill to let the user review the plan in the browser with inline comments before proceeding with implementation."
 ---
 
 ## Overview
@@ -26,7 +26,7 @@ This skill launches a browser-based plan review interface. The plan document is 
    open http://localhost:5190
    ```
 
-4. Wait for the background command to complete. The output contains the user's inline comments:
+4. **IMPORTANT: Wait for the background command to complete before doing anything else.** The user is reviewing the plan in the browser. Do NOT proceed with implementation, edits, or other work until the result is returned. The output contains the user's inline comments:
    ```json
    {
      "action": "submit",
