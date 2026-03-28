@@ -1,6 +1,6 @@
 ---
 name: codereview-review
-description: After performing a code review, use this skill to present your review comments in a GitHub-style diff UI where the user can accept/deny each suggestion and add feedback.
+description: "TRIGGER when: user asks for a code review or reviews a PR/diff. Use this skill to present review comments in a GitHub-style diff UI where the user can accept/deny each suggestion and add feedback."
 ---
 
 ## Overview
