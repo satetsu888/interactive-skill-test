@@ -68,6 +68,18 @@ Use this skill when you perform a code review and want to present your findings 
 
    **Tip**: Comments can only appear on context lines or added lines (lines with a `newNum`). They cannot appear on deleted lines.
 
+   ### Verifying line numbers before submitting
+
+   Off-by-one errors are common when counting diff line numbers. **You MUST verify each comment's line number before passing the data to the skill.** Follow this procedure:
+
+   1. Run `git diff <commit>` and save the output.
+   2. For each comment, find the line content you intend to comment on in the diff output.
+   3. Count the new-side line number for that line (context and `+` lines only).
+   4. Cross-check: read the actual file at that line number (`sed -n '<line>p' <file>`) and confirm it matches the line you want to comment on.
+   5. If it doesn't match, re-count from the nearest hunk header.
+
+   **Do NOT skip this verification step.** A comment placed on the wrong line confuses the user and undermines the review.
+
 2. Run **in the background**, passing the JSON via `--data`:
    ```bash
    node skills/codereview-review-skill/server.mjs --port 5190 --data '<JSON>'
