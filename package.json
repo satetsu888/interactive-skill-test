@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && npm run build:demo && npm run build:kanban && npm run build:color && npm run build:grid && npm run build:annotate && npm run build:pairwise && npm run build:datafilter && npm run build:quiz && npm run build:planreview && npm run build:codereview-review",
+    "build": "tsc && npm run build:demo && npm run build:kanban && npm run build:color && npm run build:grid && npm run build:annotate && npm run build:pairwise && npm run build:datafilter && npm run build:quiz && npm run build:planreview && npm run build:codereview-review && npm run build:diffmerge",
+    "build:diffmerge": "SKILL=diffmerge vite build && mv skills/diffmerge-skill/dist/diffmerge.html skills/diffmerge-skill/dist/index.html",
     "build:demo": "SKILL=demo vite build && mv skills/demo-skill/dist/demo.html skills/demo-skill/dist/index.html",
     "build:kanban": "SKILL=kanban vite build && mv skills/kanban-skill/dist/kanban.html skills/kanban-skill/dist/index.html",
     "build:color": "SKILL=color vite build && mv skills/color-skill/dist/color.html skills/color-skill/dist/index.html",

@@ -226,6 +226,26 @@ node skills/codereview-review-skill/server.mjs --port 5190 --data '{
 }'
 ```
 
+### Diff Merge Skill - 差分マージ
+
+2つのテキストバリエーションをチャンク単位で比較し、各チャンクでどちらを採用するか選んでマージ結果を作ります。
+
+![Diff Merge Skill](docs/screenshots/diffmerge-skill.png)
+
+```bash
+node skills/diffmerge-skill/server.mjs --port 5190 --data '{
+  "title": "文章のリライト比較",
+  "description": "各セクションでどちらを採用するか選んでください",
+  "labelA": "Original",
+  "labelB": "AI Rewrite",
+  "chunks": [
+    { "id": "1", "a": "The quick brown fox.", "b": "A swift brown fox.", "type": "modified" },
+    { "id": "2", "a": "It was sunny.", "b": "It was sunny.", "type": "unchanged" },
+    { "id": "3", "a": "", "b": "P.S. Thanks for reading!", "type": "added" }
+  ]
+}'
+```
+
 ## Architecture
 
 ```
@@ -240,6 +260,7 @@ src/
 ├── quiz/           # Quiz Skill (Multiple choice quiz)
 ├── planreview/     # Plan Review Skill (Inline comments on markdown)
 ├── codereview-review/ # Code Review Review Skill (GitHub-style diff review)
+├── diffmerge/      # Diff Merge Skill (Side-by-side text merge)
 └── hooks/
     └── useAgentBridge.ts   # Server-Frontend bridge hook
 skills/
@@ -252,7 +273,8 @@ skills/
 ├── pairwise-skill/
 ├── quiz-skill/
 ├── planreview-skill/
-└── codereview-review-skill/
+├── codereview-review-skill/
+└── diffmerge-skill/
 ```
 
 各スキルは共通の `useAgentBridge` フックを通じてサーバーと通信します:
