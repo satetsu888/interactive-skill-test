@@ -7,6 +7,8 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
+    "@babylonjs/core": "^5.25.0",
+    "@babylonjs/materials": "^5.25.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-markdown": "^10.1.0",
