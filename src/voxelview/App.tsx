@@ -149,8 +149,7 @@ export function App() {
           <button
             style={styles.confirmBtn}
             onClick={() =>
-              respond("confirm", {
-                blockCount: voxelState.size,
+              respond("submit", {
                 comments: comments.map(({ x, y, z, text }) => ({ x, y, z, text })),
               })
             }
