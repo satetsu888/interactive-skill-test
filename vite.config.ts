@@ -20,8 +20,8 @@ function makeConfig(name: string): InlineConfig {
         closeBundle() {
           try {
             renameSync(
-              resolve(__dirname, `skills/${name}-skill/dist/${name}.html`),
-              resolve(__dirname, `skills/${name}-skill/dist/index.html`),
+              resolve(__dirname, `skills/${name}/dist/${name}.html`),
+              resolve(__dirname, `skills/${name}/dist/index.html`),
             )
           } catch {}
         },
@@ -29,7 +29,7 @@ function makeConfig(name: string): InlineConfig {
     ],
     root: __dirname,
     build: {
-      outDir: `skills/${name}-skill/dist`,
+      outDir: `skills/${name}/dist`,
       emptyOutDir: true,
       rollupOptions: {
         input: resolve(__dirname, `${name}.html`),
@@ -66,9 +66,9 @@ export default defineConfig({
                 renameSync(
                   resolve(
                     __dirname,
-                    `skills/${skill}-skill/dist/${skill}.html`,
+                    `skills/${skill}/dist/${skill}.html`,
                   ),
-                  resolve(__dirname, `skills/${skill}-skill/dist/index.html`),
+                  resolve(__dirname, `skills/${skill}/dist/index.html`),
                 )
               } catch {}
             },
@@ -78,7 +78,7 @@ export default defineConfig({
   root: ".",
   build: skill
     ? {
-        outDir: `skills/${skill}-skill/dist`,
+        outDir: `skills/${skill}/dist`,
         emptyOutDir: true,
         rollupOptions: {
           input: resolve(__dirname, `${skill}.html`),
