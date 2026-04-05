@@ -7,11 +7,11 @@ const convertFacingToVector3 = (facing: Direction4): Vector3 => {
     case "north":
       return new Vector3(0, 0, -1)
     case "east":
-      return new Vector3(-1, 0, 0)
+      return new Vector3(1, 0, 0)
     case "south":
       return new Vector3(0, 0, 1)
     case "west":
-      return new Vector3(1, 0, 0)
+      return new Vector3(-1, 0, 0)
   }
 }
 

@@ -159,8 +159,8 @@ function stairPartPosition(
       facing === "north" || facing === "south"
         ? 0
         : facing === "east"
-          ? -0.25
-          : 0.25,
+          ? 0.25
+          : -0.25,
       half === "top" ? -0.25 : 0.25,
       facing === "east" || facing === "west"
         ? 0
@@ -185,15 +185,15 @@ function stairPartPosition(
       )
     } else if (facing === "east") {
       return new Vector3(
-        shape === "inner_left" || shape === "inner_right" ? 0.25 : -0.25,
-        half === "top" ? -0.25 : 0.25,
-        shape === "inner_left" || shape === "outer_left" ? -0.25 : 0.25,
-      )
-    } else if (facing === "west") {
-      return new Vector3(
         shape === "inner_left" || shape === "inner_right" ? -0.25 : 0.25,
         half === "top" ? -0.25 : 0.25,
         shape === "inner_left" || shape === "outer_left" ? 0.25 : -0.25,
+      )
+    } else if (facing === "west") {
+      return new Vector3(
+        shape === "inner_left" || shape === "inner_right" ? 0.25 : -0.25,
+        half === "top" ? -0.25 : 0.25,
+        shape === "inner_left" || shape === "outer_left" ? -0.25 : 0.25,
       )
     }
   }
